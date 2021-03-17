@@ -4,26 +4,13 @@ import { Observable, of } from 'rxjs';
 import { catchError, switchMap, timeout } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import {TokenService} from './token.service';
+// import {TokenService} from './token.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HttpService {
   constructor(private http: HttpClient, private  tokenService: TokenService) {}
-
-  private DOMAIN = environment.API_DOMAIN; // config in environment file
-
-  // private getHttpOptions() {
-  //   var headers = new HttpHeaders();
-  //   var token = localStorage.getItem('token');
-  //   if (token != null) {
-  //     headers = headers.append('Authorization', 'Bearer ' + token);
-  //   }
-  //   return {
-  //     headers,
-  //   };
-  // }
-
   private getHttpOptions(): any {
     let headers = new HttpHeaders();
     const token = this.tokenService.getToken();
@@ -51,97 +38,10 @@ export class HttpService {
       return of(null);
     };
   }
-
-  get(url): Observable<any> {
-    return this.request('get', url).pipe(
-      switchMap((res) => this.checkNotAuthenticated(res, () => this.get(url)))
-    );
-  }
-
-  post(url, data?): Observable<any> {
-    return this.request('post', url, data).pipe(
-      switchMap((res) =>
-        this.checkNotAuthenticated(res, () => this.post(url, data))
-      )
-    );
-  }
-
-  put(url, data?): Observable<any> {
-    return this.request('put', url, data).pipe(
-      switchMap((res) =>
-        this.checkNotAuthenticated(res, () => this.put(url, data))
-      )
-    );
-  }
-
-  delete(url): Observable<any> {
-    return this.request('delete', url).pipe(
-      switchMap((res) =>
-        this.checkNotAuthenticated(res, () => this.delete(url))
-      )
-    );
-  }
-
-  request(method: string, url: string, data?: object): Observable<any> {
-    var options = this.getHttpOptions();
-    var response: Observable<any>;
-
-    switch (method) {
-      case 'get':
-        response = this.http
-          .get(this.DOMAIN + url, options)
-          .pipe(timeout(60000), catchError(this.handleError()));
-        break;
-      case 'post':
-        response = this.http
-          .post(this.DOMAIN + url, data, options)
-          .pipe(timeout(60000), catchError(this.handleError()));
-        break;
-      case 'put':
-        response = this.http
-          .put(this.DOMAIN + url, data, options)
-          .pipe(timeout(60000), catchError(this.handleError()));
-        break;
-      case 'delete':
-        response = this.http
-          .delete(this.DOMAIN + url, options)
-          .pipe(timeout(60000), catchError(this.handleError()));
-        break;
-    }
-
-    return response;
-  }
-
-  private async checkNotAuthenticated(res, callback?: Function, data?: object) {
-    if (!res) return res;
-    if (!res.success && res.error_code === 'not_authenticated') {
-      let refresh = window.localStorage.getItem('refreshToken');
-      if (!refresh || refresh == '') {
-        return {
-          error_code: 'token_not_valid',
-          error_message: 'Phiên đăng nhập đã hết hạn vui lòng đăng nhập lại.',
-        };
-      } else if (refresh) {
-        var result = await this.refreshToken(refresh).toPromise();
-        if (result.success) {
-          window.localStorage.setItem('token', result.data.access);
-          return await callback().toPromise();
-        } else {
-          return result;
-        }
-      }
-    }
-
-    return res;
-  }
-
-  private refreshToken(refresh) {
-    return this.request('post', 'auth/token-refresh', { refresh: refresh });
-  }
   refreshTokenModify(): any {
     const options = this.getHttpOptions();
     const url = 'UserAuth/refresh';
-    return this.http.post(this.DOMAIN + url, {refresh: this.tokenService.getRefreshToken()}, options);
+    return this.http.post( url, {refresh: this.tokenService.getRefreshToken()}, options);
 
   }
 
@@ -165,22 +65,22 @@ export class HttpService {
     switch (method) {
       case Method.get:
         response = this.http
-          .get(this.DOMAIN + url, options)
+          .get( url, options)
           .pipe(timeout(60000), catchError(this.processError(() => this.getHandle(url, data))));
         break;
       case Method.post:
         response = this.http
-          .post(this.DOMAIN + url, data, options)
+          .post( url, data, options)
           .pipe(timeout(60000), catchError(this.processError(() => this.postHandle(url, data))));
         break;
       case Method.put:
         response = this.http
-          .put(this.DOMAIN + url, data, options)
+          .put( url, data, options)
           .pipe(timeout(60000), catchError(this.processError(() => this.putHandle(url, data))));
         break;
       case Method.delete:
         response = this.http
-          .delete(this.DOMAIN + url, options)
+          .delete( url, options)
           .pipe(timeout(60000), catchError(this.processError(() => this.deleteHandle(url, data))));
         break;
     }
@@ -227,4 +127,3 @@ enum Method{
   put,
   delete
 }
-

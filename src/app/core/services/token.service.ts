@@ -9,9 +9,8 @@ export class TokenService {
   constructor() {
 
   }
-
-  getToken(): string {
-    return localStorage.getItem('token');
+  getToken(): string{
+    return localStorage.getItem('token') as string;
   }
 
   getUserId(): string {
@@ -23,11 +22,11 @@ export class TokenService {
     return  localStorage.getItem('token');
   }
 
-  setToken(access): any {
+  setToken(access: any): any {
     localStorage.setItem('token', access);
   }
 
-  setRefreshToken(refresh): any {
+  setRefreshToken(refresh: any): any {
     localStorage.setItem('refreshToken', refresh);
   }
 

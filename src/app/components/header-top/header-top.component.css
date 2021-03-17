@@ -1,0 +1,51 @@
+.top_bar {
+  width: 100%;
+  background: #14bdee;
+}
+/* .header.scrolled .top_bar {
+} */
+.top_bar_container {
+  width: 100%;
+  height: 100%;
+}
+.top_bar_content {
+  width: 100%;
+  height: 40px;
+}
+.top_bar_contact_list li {
+  display: inline-block;
+}
+.question {
+  font-family: "Roboto Slab", serif;
+  font-size: 14px;
+  color: #ffffff;
+  margin-left: 0px;
+}
+.top_bar_contact_list li i,
+.top_bar_contact_list li > div {
+  display: inline-block;
+  font-size: 14px;
+  color: #ffffff;
+}
+.top_bar_contact_list li > div {
+  margin-left: 1px;
+}
+.top_bar_contact_list li:not(:last-child) {
+  margin-right: 21px;
+}
+.top_bar_login {
+  height: 100%;
+}
+.login_button {
+  width: 160px;
+  height: 100%;
+  background: #f3f3f3;
+  text-align: center;
+}
+.login_button a {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 40px;
+  color: #384158;
+}
