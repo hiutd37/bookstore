@@ -26,12 +26,6 @@ export class LoginComponent implements OnInit {
   }
 
   doLogin(): void {
-    if (this.username.value === 'hieu' && this.password.value === '123456'){
-      alert('Thanh cong');
-    }
-    else {
-      alert('Dang nhap that bai!');
-    }
     console.log(this.loginForm.value);
     this.authService.login(this.loginForm.value);
   }
