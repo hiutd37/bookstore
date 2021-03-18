@@ -18,7 +18,8 @@ export class AuthService {
       if (res && res.success) {
         this.isLogin = true;
         this.router.navigateByUrl('/user');
-      }
+        }
+      this.isLogin === true ? alert('Login Sucesses') : alert('Login fail');
     });
   }
   logout(): void {
