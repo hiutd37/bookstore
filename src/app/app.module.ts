@@ -16,11 +16,11 @@ import { RegisterNowComponent } from './modules/home/register-now/register-now.c
 import { ShopComponent } from './modules/shop/shop.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ProductShopComponent } from './modules/shop/product-shop/product-shop.component';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { LoginComponent } from './modules/auth/login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { UserComponent } from './modules/user/user.component';
+import { RegisterComponent } from './modules/auth/register/register.component';
 
 
 @NgModule({
@@ -40,12 +40,12 @@ import { UserComponent } from './modules/user/user.component';
     SidebarComponent,
     ProductShopComponent,
     LoginComponent,
-    UserComponent
+    UserComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MDBBootstrapModule.forRoot(),
     ReactiveFormsModule,
     HttpClientModule
   ],

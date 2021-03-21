@@ -1,0 +1,44 @@
+<app-header-top></app-header-top>
+
+<app-header></app-header>
+
+<div class="wrapper">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img alt="User Icon" id="icon" src="./assets/image/avt.jpeg"/>
+    </div>
+
+    <!-- Register Form -->
+    <form (ngSubmit)="doRegister()" [formGroup]="registerForm">
+      <input class="" id="fullname" name="register" formControlName="fullname" placeholder="Fullname..." type="text">
+      <div *ngIf="fullname.invalid && fullname.touched">
+        <p [style]="{color:'red'}">Không được bỏ trống!</p>
+      </div>
+      <input class="" id="username" name="register" formControlName="username" placeholder="Username..." type="text">
+      <div *ngIf="username.invalid && username.touched">
+        <p [style]="{color:'red'}">Không được bỏ trống!</p>
+      </div>
+      <input class="" id="password" name="register" formControlName="password" placeholder="Password..." type="password">
+      <div *ngIf="password.invalid && password.touched">
+        <p [style]="{color:'red'}">Không được bỏ trống!</p>
+      </div>
+      <input class="" type="submit" value="Register">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Register with</a>
+      <div class = "iconGroupRegisterWith">
+        <ul>
+        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

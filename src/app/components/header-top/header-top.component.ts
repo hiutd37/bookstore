@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../../modules/auth/auth.service';
 import {Router} from '@angular/router';
+import {ServicesHttpService} from '../../core/services/services-http.service';
+import {AuthServiceService} from '../../modules/auth/auth-service.service';
 
 @Component({
   selector: 'app-header-top',
@@ -9,9 +10,10 @@ import {Router} from '@angular/router';
 })
 export class HeaderTopComponent implements OnInit {
 
-  constructor(public authService: AuthService, private router: Router) { }
+  constructor(private servicesHttpService: ServicesHttpService,
+              private router: Router,
+              public authServiceService: AuthServiceService) { }
 
   ngOnInit(): void {
   }
-
 }

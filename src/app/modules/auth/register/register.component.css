@@ -79,7 +79,7 @@ h2.active {
 
 /* FORM TYPOGRAPHY*/
 
-input[type=button], input[type=submit], input[type=reset]  {
+input[type=button], input[type=submit], input[type=reset]{
   background-color: #56baed;
   border: none;
   color: white;
@@ -132,10 +132,11 @@ input[type=text], input[type=password]{
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
 }
-input[type=text]:focus{
+input[type=text]:focus {
   background-color: #f5efef;
   border-bottom: 2px solid #5fbae9;
-} input[type= password]:focus {
+}
+input[type= password]:focus {
   background-color: #f5efef;
   border-bottom: 2px solid #5fbae9;
 }
@@ -153,4 +154,40 @@ input[type=text]:focus{
 }
 #icon {
   width:60%;
+}
+.iconGroupRegisterWith
+{
+  margin-top: 23px;
+}
+.iconGroupRegisterWith ul li
+{
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  background: #22a3ca;
+  border-radius: 50%;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.iconGroupRegisterWith ul li:not(:last-child)
+{
+  margin-right: 6px;
+}
+.iconGroupRegisterWith ul li a
+{
+  display: block;
+  position: relative;
+  text-align: center;
+}
+.iconGroupRegisterWith ul li a i
+{
+  color: #ffffff;
+  line-height: 45px;
+}
+.iconGroupRegisterWith ul li:hover
+{
+  background: #14bdee;
 }

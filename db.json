@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fullname": "Trịnh Đức Hiếu",
+      "username": "hieu",
+      "password": "123456"
+    },
+    {
+      "fullname": "Trần Minh",
+      "username": "nm15",
+      "password": "120919",
+      "id": 2
+    },
+    {
+      "fullname": "",
+      "username": "",
+      "password": "",
+      "id": 3
+    }
+  ]
+}
