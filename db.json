@@ -13,10 +13,22 @@
       "id": 2
     },
     {
-      "fullname": "",
-      "username": "",
-      "password": "",
+      "fullname": "Trinh Hieu",
+      "username": "hiutd37",
+      "password": "hiu",
       "id": 3
+    },
+    {
+      "fullname": "Test Nhanh",
+      "username": "1",
+      "password": "1",
+      "id": 4
+    },
+    {
+      "fullname": "Hulk",
+      "username": "hulk",
+      "password": "banner",
+      "id": 5
     }
   ]
 }

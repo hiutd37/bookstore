@@ -7,6 +7,7 @@ import {ServicesHttpService} from '../../core/services/services-http.service';
 })
 export class AuthServiceService {
   isLogin = false;
+  showName = '';
   constructor(private router: Router,
               private servicesHttpService: ServicesHttpService ) { }
   logIn(data: object): any{
@@ -18,8 +19,10 @@ export class AuthServiceService {
         if (data.username === res[i].username && data.password === res[i].password) {
           this.isLogin = true;
           this.router.navigateByUrl('/user');
+          this.showName = res[i].fullname;
         }
       }
+      this.isLogin === true ? alert('Login success') : alert('Login fail');
     });
   }
   logout(): void {
@@ -30,6 +33,8 @@ export class AuthServiceService {
     // @ts-ignore
     this.servicesHttpService.postInfoRegister(data).subscribe( res => {
       console.log(res);
+      alert('Register success, login now');
+      this.router.navigateByUrl('/login');
     });
   }
 }

@@ -19,8 +19,18 @@
               </li>
             </ul>
             <div class="top_bar_login ml-auto">
-              <div *ngIf = "authServiceService.isLogin === true" class="login_button" (click)="authServiceService.logout()"><a>LogOut</a></div>
+              <div class="row">
+
+                <div class="dropdown">
+                  <span id="showname" [hidden] = "authServiceService.isLogin === false">Xin chào {{authServiceService.showName}}</span>
+                  <div class="dropdown-content">
+                    <div *ngIf = "authServiceService.isLogin === true" class="logout_button" (click)="authServiceService.logout()">
+                      <a>LogOut</a>
+                    </div>
+                  </div>
+                </div>
               <div [hidden] = "authServiceService.isLogin === true" class="login_button"><a routerLink="/login">Register or Login</a></div>
+              </div>
             </div>
           </div>
         </div>

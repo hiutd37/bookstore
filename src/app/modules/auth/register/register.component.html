@@ -25,7 +25,7 @@
       <div *ngIf="password.invalid && password.touched">
         <p [style]="{color:'red'}">Không được bỏ trống!</p>
       </div>
-      <input class="" type="submit" value="Register">
+      <input ng-disabled="fullname.invalid || username.invalid || password.invalid" class="" type="submit" value="Register">
     </form>
 
     <!-- Remind Passowrd -->
