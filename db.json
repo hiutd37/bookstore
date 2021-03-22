@@ -29,6 +29,12 @@
       "username": "hulk",
       "password": "banner",
       "id": 5
+    },
+    {
+      "fullname": "Phạm Hiểu Phong",
+      "username": "phongngao",
+      "password": "123456",
+      "id": 6
     }
   ]
 }
