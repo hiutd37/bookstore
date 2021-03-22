@@ -18,7 +18,7 @@ export class AuthServiceService {
         // @ts-ignore
         if (data.username === res[i].username && data.password === res[i].password) {
           this.isLogin = true;
-          this.router.navigateByUrl('/user');
+          this.router.navigateByUrl('/shop');
           this.showName = res[i].fullname;
         }
       }

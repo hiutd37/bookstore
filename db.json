@@ -5,36 +5,6 @@
       "fullname": "Trịnh Đức Hiếu",
       "username": "hieu",
       "password": "123456"
-    },
-    {
-      "fullname": "Trần Minh",
-      "username": "nm15",
-      "password": "120919",
-      "id": 2
-    },
-    {
-      "fullname": "Trinh Hieu",
-      "username": "hiutd37",
-      "password": "hiu",
-      "id": 3
-    },
-    {
-      "fullname": "Test Nhanh",
-      "username": "1",
-      "password": "1",
-      "id": 4
-    },
-    {
-      "fullname": "Hulk",
-      "username": "hulk",
-      "password": "banner",
-      "id": 5
-    },
-    {
-      "fullname": "Phạm Hiểu Phong",
-      "username": "phongngao",
-      "password": "123456",
-      "id": 6
     }
   ]
 }
