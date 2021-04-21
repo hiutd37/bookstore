@@ -8,9 +8,9 @@
     <form class="form-inline py-2">
     </form>
     <div class="py-2">
-      <p>Total product: {{5}}</p>
+      <p>Total product: {{totalProduct}}</p>
       <span class="d-inline-block align-middle text-sm text-muted font-weight-medium text-uppercase mr-2">Subtotal:</span>
-      <span class="d-inline-block align-middle text-xl font-weight-medium">{{totalPrice}}</span></div>
+      <span class="d-inline-block align-middle text-xl font-weight-medium">{{totalPrice | formatPrice}}đ</span></div>
   </div>
   <!-- Buttons-->
   <hr class="my-2">
