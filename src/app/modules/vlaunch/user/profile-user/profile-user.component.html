@@ -1,0 +1,109 @@
+<app-header-top></app-header-top>
+<app-header></app-header>
+<form (ngSubmit)="handleUpdateProfile()" [formGroup]="updateProfileForm">
+<div class="container">
+  <div class="row gutters">
+    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="account-settings">
+            <div class="user-profile">
+              <div class="user-avatar">
+                <!--<img src="https://localhost:5001/images/{{inForUser.avatar}}" alt="Image User">-->
+                <img src="./assets/image/avtUserComment2.jpg" alt="Image User">
+              </div>
+              <h5 class="user-name">{{inForUser.name}}</h5>
+              <h6 class="user-email" formControlName="emailUser">{{inForUser.email}}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="row gutters">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <h6 class="mb-2 text-primary">Personal Details</h6>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" class="form-control" id="fullName" placeholder="Enter full name" formControlName="fullNameUser" value="{{inForUser.name}}"  [disabled]=disabledInput>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="form-group">
+                <label for="eMail">Email</label>
+                <input type="email" class="form-control" id="eMail" placeholder="Enter email ID" formControlName="emailUser" value = "{{inForUser.email}}" [disabled]=disabledInput>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" id="phone" placeholder="Enter phone number" formControlName="phoneUser" value="{{inForUser.phone}}" [disabled]=disabledInput>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="form-group">
+                <label>Old Password</label>
+                <input type="password" class="form-control" id="oldPassword" placeholder="Old password" formControlName="oldPassword" value="123456" [disabled]=disabledInput>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="form-group">
+                <label>New password</label>
+                <input type="password" class="form-control" id="newPassword" placeholder="New password" formControlName="newPassword" [disabled]=disabledInput>
+              </div>
+            </div>
+          </div>
+          <div class="row gutters">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <h6 class="mt-3 mb-2 text-primary">Address</h6>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="form-group">
+                <mat-form-field appearance="fill">
+                  <mat-label>Favorite food</mat-label>
+                  <mat-select>
+                    <mat-option *ngFor="let district of districtList" [value]="district.id">
+                      {{district.districtName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="form-group">
+                <mat-form-field appearance="fill">
+                  <mat-label>Favorite food</mat-label>
+                  <mat-select value="1" (valueChange)="loadDistrict($event)">
+                    <mat-option *ngFor="let city of cityList" [value]="city.id">
+                      {{city.cityName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="form-group">
+                <label for="sTate">State</label>
+                <input type="text" class="form-control" id="sTate" placeholder="Enter State" formControlName="stateAddress" [disabled]=disabledInput>
+              </div>
+            </div>
+          </div>
+          <div class="row gutters">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="text-right">
+                <button type="button" id="update" class="btn btn-danger" (click)="changeInforUser()">Update</button>
+                <button type="submit" id="saveChange" name="saveProfile" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+<app-footer></app-footer>

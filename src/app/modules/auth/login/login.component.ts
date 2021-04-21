@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {ServicesHttpService} from '../../../core/services/services-http.service';
+import {HttpService} from '../../../core/services/http.service';
 import {Router} from '@angular/router';
 import {AuthServiceService} from '../auth-service.service';
 
@@ -15,13 +15,13 @@ export class LoginComponent implements OnInit {
   password: any;
 
   constructor(
-    private servicesHttpService: ServicesHttpService,
+    private servicesHttpService: HttpService,
     private authServiceService: AuthServiceService,
     private router: Router
   ) {}
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      username: new FormControl('', [Validators.required]),
+      username: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
     });
     this.username = this.loginForm.get('username');
@@ -29,6 +29,6 @@ export class LoginComponent implements OnInit {
   }
   doLogin(): void {
     console.log(this.loginForm.value);
-    this.authServiceService.logIn(this.loginForm.value);
+    this.authServiceService.logInToken(this.loginForm.value);
   }
 }

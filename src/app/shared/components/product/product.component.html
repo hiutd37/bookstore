@@ -1,0 +1,37 @@
+<!--
+<div class="product_col">
+  <div class="product">
+    <div class="product_image"><img src="https://localhost:5001/images/{{product.mainImage}}" alt=""></div>
+    <div class="product_body">
+      <h3 class="product_title"><a href="http://localhost:4200/detail/{{product.id}}">{{product.bookName}}</a></h3>
+      <div class="book_author">{{product.authorName}}</div>
+    </div>
+    <div class="product_footer">
+      <div class="product_footer_content d-flex flex-row align-items-center justify-content-start">
+        <div class="product_info">
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <span>4.5</span>
+        </div>
+        <div class="product_price ml-auto">{{product.price | formatPrice}}đ</div>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+  <section class="panel">
+    <div class="pro-img-box">
+      <img src="https://localhost:5001/images/{{product.mainImage}}" alt="">
+      <a class="adtocart" (click)="addToCart(product.id)">
+        <i class="fa fa-shopping-cart"></i>
+      </a>
+    </div>
+
+    <div class="panel-body text-center">
+      <h4>
+        <a href="http://localhost:4200/detail/{{product.id}}" class="pro-title">
+          {{product.bookName}}
+        </a>
+      </h4>
+      <p class="price">{{product.price | formatPrice}}đ</p>
+    </div>
+  </section>

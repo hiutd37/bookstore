@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-lg-3 g-mb-30" *ngFor="let productnewitem of productnews">
+      <app-product-banner-item [product]="productnewitem"></app-product-banner-item>
+    </div>
+  </div>
+</div>
+    <div class="row">
+      <div class="col">
+        <div class="books_new_button trans_200"><a routerLink="/shop">view all books_new</a></div>
+      </div>
+    </div>

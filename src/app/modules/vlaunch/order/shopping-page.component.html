@@ -1,0 +1,22 @@
+<app-header-top></app-header-top>
+<app-header></app-header>
+<div class="container pb-5 mb-2">
+  <!-- List product -->
+  <app-shopping-cart-list></app-shopping-cart-list>
+  <!-- Coupon + Subtotal-->
+  <div class="d-sm-flex justify-content-between align-items-center text-center text-sm-left">
+    <form class="form-inline py-2">
+    </form>
+    <div class="py-2">
+      <p>Total product: {{5}}</p>
+      <span class="d-inline-block align-middle text-sm text-muted font-weight-medium text-uppercase mr-2">Subtotal:</span>
+      <span class="d-inline-block align-middle text-xl font-weight-medium">{{totalPrice}}</span></div>
+  </div>
+  <!-- Buttons-->
+  <hr class="my-2">
+  <div class="row pt-3 pb-5 mb-2">
+    <div class="col-sm-6 mb-3"></div>
+    <div class="col-sm-6 mb-3"><a class="btn btn-style-1 btn-primary btn-block" href="checkout-address.html"><i class="fe-icon-credit-card"></i>&nbsp;Checkout</a></div>
+  </div>
+</div>
+<app-footer></app-footer>

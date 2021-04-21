@@ -13,8 +13,8 @@
 
     <!-- Register Form -->
     <form (ngSubmit)="doRegister()" [formGroup]="registerForm">
-      <input class="" id="fullname" name="register" formControlName="fullname" placeholder="Fullname..." type="text">
-      <div *ngIf="fullname.invalid && fullname.touched">
+      <input class="" id="fullname" name="register" formControlName="name" placeholder="Fullname..." type="text">
+      <div *ngIf="name.invalid && name.touched">
         <p [style]="{color:'red'}">Không được bỏ trống!</p>
       </div>
       <input class="" id="username" name="register" formControlName="username" placeholder="Username..." type="text">

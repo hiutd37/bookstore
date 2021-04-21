@@ -5,6 +5,26 @@
       "fullname": "Trịnh Đức Hiếu",
       "username": "hieu",
       "password": "123456"
+    },
+    {
+      "fullname": "Trinh Hieu",
+      "username": "hiudeptrai",
+      "password": "123456",
+      "id": 2
+    },
+    {
+      "fullname": "Ninh Hieu",
+      "username": "hiu",
+      "password": "111111",
+      "id": 3
     }
-  ]
+  ],
+   "product": [{
+     "id": 1,
+     "image": "",
+     "name": "Thor 3",
+     "price": 120000,
+     "author": "Marvel Studio",
+     "rating": 5
+   }]
 }

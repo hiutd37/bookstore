@@ -9,19 +9,18 @@ import {AuthServiceService} from '../auth-service.service';
 })
 export class RegisterComponent implements OnInit {
   registerForm: any;
-  fullname: any;
+  name: any;
   username: any;
   password: any;
-  repassword: any;
   constructor(public authServiceService: AuthServiceService) { }
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
-      fullname: new FormControl('', [Validators.required]),
+      name: new FormControl('', [Validators.required]),
       username: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
     });
-    this.fullname = this.registerForm.get('fullname');
+    this.name = this.registerForm.get('name');
     this.username = this.registerForm.get('username');
     this.password = this.registerForm.get('password');
   }

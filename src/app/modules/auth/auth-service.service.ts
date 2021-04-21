@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Router} from '@angular/router';
-import {ServicesHttpService} from '../../core/services/services-http.service';
-
+import {HttpService} from '../../core/services/http.service';
+import {TokenService} from '../../core/services/token.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,20 +10,22 @@ export class AuthServiceService {
   isLogin = false;
   showName = '';
   constructor(private router: Router,
-              private servicesHttpService: ServicesHttpService ) { }
-  logIn(data: object): any{
-    this.servicesHttpService.getUser().subscribe( res => {
+              private servicesHttpService: HttpService,
+              private tokenService: TokenService,
+              private matSnackBar: MatSnackBar) { }
+  logInToken(data: object): any{
+    this.servicesHttpService.postInfoLogIn(data).subscribe(res => {
       console.log(res);
-      // tslint:disable-next-line:prefer-for-of
-      for (let i = 0 ; i < res.length ; i++) {
-        // @ts-ignore
-        if (data.username === res[i].username && data.password === res[i].password) {
-          this.isLogin = true;
-          this.router.navigateByUrl('/shop');
-          this.showName = res[i].fullname;
-        }
+      if (res.success === true){
+        this.isLogin = true;
+        this.tokenService.setAccessToken(res.data.access);
+        this.tokenService.setRefreshToken(res.data.refresh);
+        this.router.navigateByUrl('/shop');
+      }else {
+          this.matSnackBar.open(res.error_message, 'Cancel', {
+            duration: 2000
+          });
       }
-      this.isLogin === true ? alert('Login success') : alert('Login fail');
     });
   }
   logout(): void {

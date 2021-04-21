@@ -1,0 +1,199 @@
+<app-header-top></app-header-top>
+<app-header></app-header>
+<div class="productdetail">
+  <div class="container">
+    <div class="row">
+      <!-- Product detail -->
+      <div class="col-lg-8">
+        <div class="productdetail_container">
+          <div
+            class="productInfo d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
+            <!-- Book name -->
+            <div class="productInfo_item">
+              <div class="productInfo_title">Book Name</div>
+              <div class="productInfo_text"><a href="#">{{productDetail.bookName}}</a></div>
+            </div>
+
+            <!-- Rating -->
+            <div class="productInfo_item">
+              <div class="productInfo_title">Rating</div>
+              <div class="rating_r rating_r_4"><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+
+            <!--  Categories -->
+            <div class="productInfo_item">
+              <div class="productInfo_title">Categories</div>
+              <div class="productInfo_text"><a href="#">{{productDetail.categoryName}}</a></div>
+            </div>
+          </div>
+
+          <!-- Product Image -->
+          <div class="productdetail_image"><img alt="" src="https://localhost:5001/images/{{productDetail.mainImage}}"></div>
+
+          <!-- Product Tabs -->
+          <div class="productdetail_tabs_container">
+            <div class="tabs d-flex flex-row align-items-center justify-content-start">
+              <div class="tab">Rating</div>
+            </div>
+            <div class="tab_panels">
+              <!-- Rating -->
+              <div class="tab_panel tab_panel_3">
+                <div class="tab_panel_title">Product Rating</div>
+                <!-- Rating -->
+                <div class="review_rating_container">
+                  <div class="review_rating">
+                    <div class="review_rating_num">4.5</div>
+                    <div class="review_rating_stars">
+                      <div class="rating_r rating_r_4"><i></i><i></i><i></i><i></i><i></i></div>
+                    </div>
+                    <div class="review_rating_text">(28 Ratings)</div>
+                  </div>
+                  <div class="review_rating_bars">
+                    <ul>
+                      <li><span>5 Star</span>
+                        <div class="review_rating_bar">
+                          <div style="width:90%;"></div>
+                        </div>
+                      </li>
+                      <li><span>4 Star</span>
+                        <div class="review_rating_bar">
+                          <div style="width:75%;"></div>
+                        </div>
+                      </li>
+                      <li><span>3 Star</span>
+                        <div class="review_rating_bar">
+                          <div style="width:32%;"></div>
+                        </div>
+                      </li>
+                      <li><span>2 Star</span>
+                        <div class="review_rating_bar">
+                          <div style="width:10%;"></div>
+                        </div>
+                      </li>
+                      <li><span>1 Star</span>
+                        <div class="review_rating_bar">
+                          <div style="width:3%;"></div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Comments -->
+                <div class="comments_container">
+                  <ul class="comments_list">
+                    <li>
+                      <div class="comment_item d-flex flex-row align-items-start jutify-content-start">
+                        <div class="comment_image">
+                          <div><img alt="" src="./assets/image/avtUserComment3.jpeg"></div>
+                        </div>
+                        <div class="comment_content">
+                          <div class="comment_title_container d-flex flex-row align-items-center justify-content-start">
+                            <div class="comment_author"><a href="#">Neymar JR</a></div>
+                            <div class="comment_rating">
+                              <div class="rating_r rating_r_4"><i></i><i></i><i></i><i></i><i></i></div>
+                            </div>
+                            <div class="comment_time ml-auto">1 day ago</div>
+                          </div>
+                          <div class="comment_text">
+                            <p>Good product.</p>
+                          </div>
+                          <div class="comment_extras d-flex flex-row align-items-center justify-content-start">
+                            <div class="comment_extra comment_likes"><a href="#"><i aria-hidden="false" class="fa fa-heart"></i><span>15</span></a>
+                            </div>
+                            <div class="comment_extra comment_reply"><a href="#"><i aria-hidden="false" class="fa fa-reply"></i><span>Reply</span></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="add_comment_container">
+                    <div class="add_comment_title">Add a comment</div>
+                    <div class="add_comment_text">You must be <a routerLink="/login">logged</a> in to post a comment.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Detail Sidebar -->
+      <div class="col-lg-4">
+        <div class="sidebar">
+
+          <!-- Feature -->
+          <div class="sidebar_section">
+            <div class="sidebar_section_title">Product Detail</div>
+            <div class="sidebar_feature">
+              <div class="productdetail_price">{{productDetail.price | formatPrice}}đ</div>
+
+              <!-- Features -->
+              <div class="feature_list">
+                <!-- Feature -->
+                <div class="feature d-flex flex-row align-items-center justify-content-start">
+                  <div class="feature_title"><i aria-hidden="false" class="fa fa-users"></i><span>Quantiy</span></div>
+                  <div class="feature_text ml-auto">{{productDetail.quantity}}</div>
+                </div>
+                <!-- Feature -->
+                <div class="feature d-flex flex-row align-items-center justify-content-start">
+                  <div class="feature_title"><i aria-hidden="false" class="fa fa-list-alt"></i><span>Free ship</span>
+                  </div>
+                  <div class="feature_text ml-auto">Yes</div>
+                </div>
+                <!-- Feature -->
+                <div class="feature d-flex flex-row align-items-center justify-content-start">
+                  <div class="feature_title"><i aria-hidden="false" class="fa fa-question-circle-o"></i><span>Description</span></div>
+                  <div class="feature_text ml-auto">{{productDetail.description}}</div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature -->
+          <div class="sidebar_section">
+            <div class="sidebar_section_title">Author</div>
+            <div class="sidebar_author">
+              <div class="author_title_container d-flex flex-row align-items-center justify-content-start">
+                <div class="author_image"><img alt="" src="./assets/image/avtUserComment.jpeg"></div>
+                <div class="author_title">
+                  <div class="author_name"><a href="#">{{productDetail.authorName}}</a></div>
+                  <div class="author_position">Marketing & Management</div>
+                </div>
+              </div>
+              <div class="author_meta_container">
+                <!-- author Rating -->
+                <div class="author_meta d-flex flex-row align-items-center justify-content-start">
+                  <div class="author_meta_title">Average Rating:</div>
+                  <div class="author_meta_text ml-auto"><span>4.7</span><i aria-hidden="false" class="fa fa-star"></i>
+                  </div>
+                </div>
+                <!-- author Review -->
+                <div class="author_meta d-flex flex-row align-items-center justify-content-start">
+                  <div class="author_meta_title">Review:</div>
+                  <div class="author_meta_text ml-auto"><span>12k</span><i aria-hidden="false"
+                                                                            class="fa fa-comment"></i></div>
+                </div>
+                <!-- author Quizzes -->
+                <div class="author_meta d-flex flex-row align-items-center justify-content-start">
+                  <div class="author_meta_title">Quizzes:</div>
+                  <div class="author_meta_text ml-auto"><span>600</span><i aria-hidden="false" class="fa fa-user"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="author_info">
+                <p>Hi! I am Masion, I’m a marketing & management eros pulvinar velit laoreet, sit amet egestas erat
+                  dignissim. Sed quis rutrum tellus, sit amet viverra felis. Cras sagittis sem sit amet urna feugiat
+                  rutrum nam nulla ipsum.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

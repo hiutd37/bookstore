@@ -1,0 +1,72 @@
+<!--
+<body>
+<div class="area"></div>
+<nav class="main-menu">
+  <ul>
+    <li>
+      <i class="fa fa-filter fa-2x"></i>
+      <span class="nav-text">BỘ LỌC TÌM KIẾM</span>
+    </li>
+    <select (change)="sort($event)" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+      <option selected>Sort</option>
+      <option value="lowtohigh">Low Price -> High Price</option>
+      <option value="hightolow">High price -> Low Price</option>
+    </select>
+  </ul>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" id="inlineCheckbox1" type="checkbox" value="option1" (change)="handleSort($event)"/>
+    <label class="form-check-label" for="inlineCheckbox1">Low to high</label>
+
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option1">
+    <label class="form-check-label" for="inlineCheckbox1">1</label>
+
+  </div>
+</nav>
+</body>
+-->
+<div class="sidebar-container">
+  <div class="sidebar-logo">
+    <span class="nav-text">FILTER SEARCH</span>
+  </div>
+  <ul class="sidebar-navigation">
+    <li class="header">Categories</li>
+    <div class="categories" *ngFor="let c of Categories">
+    <li><i class="fas fa-book"></i>{{c.categoryName}}</li>
+    </div>
+    <li class="header">Sort by price</li>
+
+      <!--
+      <li>
+      <select (change)="sort($event)" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+        <option selected>Sort</option>
+        <option value="lowtohigh">Low Price -> High Price</option>
+        <option value="hightolow">High price -> Low Price</option>
+      </select>
+       </li>
+      -->
+
+    <li>
+      <div class="form-check form-check-inline">
+        <ul>
+          <li>
+            <i class="fas fa-sort-numeric-up-alt"></i>
+            <input name="sortPrice" (change)="handleSortLowToHigh($event)" class="form-check-input" id="checkbox1" type="radio" value="lowtohigh"/>
+            <label class="form-check-label" for="checkbox1">Low to high</label>
+          </li>
+          <li>
+            <i class="fas fa-sort-numeric-down-alt"></i>
+            <input name="sortPrice" (change)="handleSortHighToLow($event)" class="form-check-input" id="checkbox2" type="radio" value="hightwolow"/>
+            <label class="form-check-label" for="checkbox2">High to low</label>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="header">Price Range</li>
+    <form>
+    <input id="priceFrom" placeholder="From" type="number">
+      <span> -> </span>
+    <input id="priceTo" placeholder="To" type="number">
+    <input id="btnApply" type="submit" value="APPLY">
+    </form>
+  </ul>
+</div>
