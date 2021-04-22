@@ -11,26 +11,25 @@ import {BookCart} from '../../../models/bookcart';
   styleUrls: ['./shopping-page.component.css']
 })
 export class ShoppingPageComponent implements OnInit {
+  elementType: 'url' | 'canvas' | 'img' = 'url';
+  value = 'Techiediaries';
   listCart: BookCart[] = [];
-  totalProduct = 0;
   totalPrice = 0;
-  tmpdataTotal = [];
-  dataTotal: any;
-  constructor(private cartServiceService: CartServiceService,
+  constructor(public cartServiceService: CartServiceService,
               private dataService: DataService,
               private tokenService: TokenService,
               private httpService: HttpService) { }
 
   ngOnInit(): void {
-    this.httpService.getBookCart(this.tokenService.getIdUserName()).subscribe(res => {
-      this.listCart = res.data;
-      for (const item of this.listCart) {
-        this.totalProduct += item.amount;
-        this.totalPrice += item.book.price;
-      }
-      // @ts-ignore
-      this.tmpdataTotal.push(this.totalProduct, this.totalPrice);
-      this.dataTotal = {totalProduct: this.tmpdataTotal[0], totalPrice: this.tmpdataTotal[1]};
+  }
+  processTotalProduct(): any {
+
+  }
+  totalSubPrice(): number {
+    let sum = 0;
+    this.listCart.forEach(x => {
+      sum += x.book.price * x.amount;
     });
+    return sum;
   }
 }

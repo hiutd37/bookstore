@@ -43,16 +43,5 @@ export class ProductComponent implements OnInit {
     console.log(this.arrProduct);
     this.infoProduct = {userId: this.arrProduct[2], bookId: this.arrProduct[0], amount: this.arrProduct[1]};
     this.cartServiceService.postProduct(this.infoProduct);
-    this.httpService.getBookCart(this.tokenService.getIdUserName()).subscribe(res => {
-      this.listCart = res.data;
-      for (const item of this.listCart) {
-        this.totalProduct += item.amount;
-        this.totalPrice += item.book.price;
-      }
-      // @ts-ignore
-      this.tmpdataTotal.push(this.totalProduct, this.totalPrice);
-      this.dataTotal = {totalProduct: this.tmpdataTotal[0], totalPrice: this.tmpdataTotal[1]};
-      alert('You have added product to cart!');
-    });
   }
 }

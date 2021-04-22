@@ -11,6 +11,7 @@ import {PageComponent} from './modules/vlaunch/page/page.component';
 import {ContactComponent} from './modules/vlaunch/contact/contact.component';
 import {AboutComponent} from './modules/vlaunch/about/about.component';
 import {ProfileUserComponent} from './modules/vlaunch/user/profile-user/profile-user.component';
+import {PaymentComponent} from './modules/vlaunch/order/payment/payment.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'page', component: PageComponent },
   {path: 'contact', component: ContactComponent },
   {path: 'about', component: AboutComponent },
-  {path: 'profile', component: ProfileUserComponent }
+  {path: 'profile', component: ProfileUserComponent },
+  {path: 'checkout', component: PaymentComponent}
 ];
 
 @NgModule({

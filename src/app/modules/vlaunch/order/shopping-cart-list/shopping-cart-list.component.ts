@@ -12,10 +12,7 @@ import {BookCart} from '../../../../models/bookcart';
 })
 export class ShoppingCartListComponent implements OnInit {
   listCart: BookCart[] = [];
-  totalProduct = 0;
   totalPrice = 0;
-  tmpdataTotal = [];
-  dataTotal: any;
   constructor(
     private dataService: DataService,
     private tokenService: TokenService,
@@ -24,19 +21,10 @@ export class ShoppingCartListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.httpService.getBookCart(this.tokenService.getIdUserName()).subscribe(res => {
-        this.listCart = res.data;
-        for (const item of this.listCart) {
-          this.totalProduct += item.amount;
-          this.totalPrice += item.book.price;
-        }
-      // @ts-ignore
-        this.tmpdataTotal.push(this.totalProduct, this.totalPrice);
-        this.dataTotal = {totalProduct: this.tmpdataTotal[0], totalPrice: this.tmpdataTotal[1]};
-        this.createData(this.dataTotal);
+    this.cartServiceService.getBookCart(this.tokenService.getIdUserName());
+    this.cartServiceService.$cart.subscribe(res => {
+      this.listCart = res;
     });
     }
-  createData(data: any): any {
-    this.cartServiceService.changeData(data);
-  }
+
 }

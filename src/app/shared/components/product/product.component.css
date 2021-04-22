@@ -168,14 +168,12 @@
 }
 
 .product-list .pro-img-box {
-  position: absolute;
-  height: 300px;
-  width: 250px;
+  position: relative;
 }
 
 .pro-img-box img {
-  height: 300px;
-  width: 250px;
+  height: 320px;
+  width: 260px;
 }
 .adtocart {
   background: #fc5959;

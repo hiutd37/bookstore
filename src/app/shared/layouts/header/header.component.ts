@@ -15,22 +15,18 @@ export class HeaderComponent implements OnInit {
   totalProduct = 0;
   totalPrice = 0;
   tmpdataTotal = [];
-  dataTotal: any;
   constructor(private cartServiceService: CartServiceService,
               private dataService: DataService,
               private tokenService: TokenService,
               private httpService: HttpService) { }
 
   ngOnInit(): void {
-    this.httpService.getBookCart(this.tokenService.getIdUserName()).subscribe(res => {
-      this.listCart = res.data;
-      for (const item of this.listCart) {
-        this.totalProduct += item.amount;
-        this.totalPrice += item.book.price;
-      }
-      // @ts-ignore
-      this.tmpdataTotal.push(this.totalProduct, this.totalPrice);
-      this.dataTotal = {totalProduct: this.tmpdataTotal[0], totalPrice: this.tmpdataTotal[1]};
-    });
+    this.cartServiceService.getBookCart(this.tokenService.getIdUserName());
+  }
+
+  getCartSum(): number {
+     // return this.cartServiceService.getTotalProduct();
+     return this.cartServiceService.totalCart;
+    // return 0;
   }
 }

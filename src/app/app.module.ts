@@ -44,6 +44,8 @@ import {MatFileUploadModule} from 'mat-file-upload';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {CarouselComponent} from './shared/layouts/carousel/carousel.component';
+import {QrCodeModule} from 'ng-qrcode';
+import { PaymentComponent } from './modules/vlaunch/order/payment/payment.component';
 
 
 @NgModule({
@@ -78,6 +80,7 @@ import {CarouselComponent} from './shared/layouts/carousel/carousel.component';
         ProfileUserComponent,
         ProductBannerItemComponent,
         CarouselComponent,
+        PaymentComponent,
     ],
   imports: [
     BrowserModule,
@@ -93,7 +96,8 @@ import {CarouselComponent} from './shared/layouts/carousel/carousel.component';
     MatSelectModule,
     MatFileUploadModule,
     MatDialogModule,
-    NgbModule
+    NgbModule,
+    QrCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
